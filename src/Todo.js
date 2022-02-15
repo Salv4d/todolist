@@ -5,8 +5,24 @@ class Todo extends Component {
     task: "hello world of todos",
   };
 
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { id } = this.props;
+
+    this.props.removeTodo(id);
+  }
+
   render() {
-    return <div className="Todo">{this.props.task}</div>;
+    return (
+      <div className="Todo">
+        {this.props.task}
+        <button onClick={this.handleClick}>x</button>
+      </div>
+    );
   }
 }
 
