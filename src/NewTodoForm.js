@@ -8,7 +8,9 @@ class NewTodoForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(evt) {
+    evt.preventDefault();
+
     this.props.addTodo(this.state.todo);
 
     this.state = {

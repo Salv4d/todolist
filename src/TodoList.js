@@ -6,6 +6,11 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = { todos: new Array() };
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  addTodo(newTodo) {
+    this.setState((st) => ({ todos: [...st.todos, newTodo] }));
   }
 
   render() {
@@ -14,7 +19,7 @@ class TodoList extends Component {
         {this.state.todos.map((task) => (
           <Todo task={task} />
         ))}
-        <NewTodoForm />
+        <NewTodoForm addTodo={this.addTodo} />
       </div>
     );
   }
