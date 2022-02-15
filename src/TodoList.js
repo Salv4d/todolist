@@ -16,10 +16,10 @@ class TodoList extends Component {
   render() {
     return (
       <div className="TodoList">
-        {this.state.todos.map((task) => (
-          <Todo task={task} />
-        ))}
         <NewTodoForm addTodo={this.addTodo} />
+        {this.state.todos.map((task) => (
+          <Todo task={task.name} key={task.id} />
+        ))}
       </div>
     );
   }
