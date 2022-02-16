@@ -9,6 +9,7 @@ class Todo extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { hidden: "Todo-hide" };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -33,13 +34,13 @@ class Todo extends Component {
     return (
       <div className="Todo">
         <label htmlFor={id} className={`${completed}`}>
-          {task}
           <input
             type="checkbox"
             id={id}
             name={task}
             onChange={this.handleChange}
           />
+          {task}
         </label>
         <button onClick={this.handleClick}>x</button>
       </div>
