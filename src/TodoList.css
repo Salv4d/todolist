@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 .TodoList {
   display: flex;
   flex-direction: column;
@@ -17,4 +19,10 @@
 
 .TodoList > h1 {
   align-self: center;
+  color: white;
+  font-family: "Pacifico", cursive;
+  font-size: 3em;
+  margin: 0;
+  font-weight: 100;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.699);
 }
