@@ -38,6 +38,7 @@ class TodoList extends Component {
   render() {
     return (
       <div className="TodoList">
+        <h1>To-do List</h1>
         <NewTodoForm addTodo={this.addTodo} />
         {this.state.todos.map((task) => (
           <Todo
