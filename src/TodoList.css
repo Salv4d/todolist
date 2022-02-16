@@ -16,6 +16,10 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.TodoList-wrapper {
+  width: 500px;
+}
+
 .TodoList > h1 {
   align-self: center;
   color: white;
@@ -24,4 +28,26 @@
   margin: 0;
   font-weight: 100;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.699);
+}
+
+.TodoList-enter {
+  opacity: 0.01;
+  transform: scale(1.1);
+}
+
+.TodoList-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms;
+}
+
+.TodoList-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.TodoList-exit-active {
+  opacity: 0.01;
+  transform: scale(1.1);
+  transition: all 300ms;
 }
