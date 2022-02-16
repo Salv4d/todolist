@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./Todo.css";
 
 class Todo extends Component {
   static defaultProps = {
@@ -26,9 +27,12 @@ class Todo extends Component {
 
   render() {
     const { id, task, complete } = this.props;
+
+    const completed = complete ? "Todo-completed" : "";
+
     return (
       <div className="Todo">
-        <label htmlFor={id}>
+        <label htmlFor={id} className={`${completed}`}>
           {task}
           <input
             type="checkbox"
