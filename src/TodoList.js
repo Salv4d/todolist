@@ -2,6 +2,7 @@ import { Component } from "react";
 import Todo from "./Todo";
 import NewTodoForm from "./NewTodoForm";
 import { v4 as uuidv4 } from "uuid";
+import "./TodoList.css";
 
 class TodoList extends Component {
   constructor(props) {
@@ -20,13 +21,17 @@ class TodoList extends Component {
 
   removeTodo(todoId) {
     this.setState((st) => ({
-      todos: st.todos.filter((task) => task.id != todoId),
+      todos: st.todos.filter((task) => task.id !== todoId),
     }));
   }
 
   toggleTodo(todo) {
+    const todoList = [
+      ...this.state.todos.filter((task) => task.id !== todo.id),
+      todo,
+    ];
     this.setState((st) => ({
-      todos: [...st.todos.filter((task) => task.id != todo.id), todo],
+      todos: todoList.sort((a, b) => a.complete - b.complete),
     }));
   }
 
@@ -39,6 +44,7 @@ class TodoList extends Component {
             task={task.name}
             key={task.id}
             id={task.id}
+            complete={task.complete}
             removeTodo={this.removeTodo}
             toggleTodo={this.toggleTodo}
           />
