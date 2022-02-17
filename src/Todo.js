@@ -10,12 +10,17 @@ class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = { hidden: "Todo-hide" };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
-  handleClick() {
+  handleRemove() {
     this.props.removeTodo(this.props.id);
+  }
+
+  handleEdit() {
+    this.props.handleEdit(this.props.id);
   }
 
   handleChange(evt) {
@@ -42,7 +47,10 @@ class Todo extends Component {
           />
           {task}
         </label>
-        <button onClick={this.handleClick}>x</button>
+        <div>
+          <button>Edit</button>
+          <button onClick={this.handleRemove}>x</button>
+        </div>
       </div>
     );
   }
