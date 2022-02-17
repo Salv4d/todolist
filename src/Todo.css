@@ -26,19 +26,19 @@
 
 @media only screen and (max-width: 545px) {
   .Todo-task {
-    width: 375px;
+    width: 370px;
   }
 }
 
 @media only screen and (max-width: 470px) {
   .Todo-task {
-    width: 315px;
+    width: 310px;
   }
 }
 
 @media only screen and (max-width: 440px) {
   .Todo-task {
-    width: 275px;
+    width: 270px;
   }
 }
 
