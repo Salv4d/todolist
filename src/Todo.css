@@ -7,6 +7,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.233);
   width: 100%;
   text-shadow: 0 1px 10px rgba(255, 255, 255, 0.699);
+  box-sizing: border-box;
 }
 
 .Todo:hover {
@@ -20,7 +21,25 @@
 .Todo-task {
   background-color: transparent;
   border: none;
-  width: 455px;
+  width: 445px;
+}
+
+@media only screen and (max-width: 545px) {
+  .Todo-task {
+    width: 375px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .Todo-task {
+    width: 315px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .Todo-task {
+    width: 275px;
+  }
 }
 
 .Todo button {
