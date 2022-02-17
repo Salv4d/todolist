@@ -1,12 +1,10 @@
 .Todo {
   display: flex;
-  color: rgb(24, 24, 24);
   justify-content: space-between;
   padding: 5px;
   font-size: 0.9em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.233);
   width: 100%;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.699);
   box-sizing: border-box;
 }
 
@@ -19,6 +17,8 @@
 }
 
 .Todo-task {
+  color: rgb(24, 24, 24);
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.699);
   background-color: transparent;
   border: none;
   width: 445px;
