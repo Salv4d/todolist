@@ -45,6 +45,7 @@ class TodoList extends Component {
       ...this.state.todos.filter((task) => task.id !== todo.id),
       todo,
     ];
+
     this.setState((st) => ({
       todos: todoList.sort((a, b) => a.complete - b.complete),
     }));

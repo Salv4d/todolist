@@ -50,21 +50,22 @@ class Todo extends Component {
   }
 
   render() {
-    const { id, task, complete, editMode } = this.props;
+    const { id, task, complete } = this.props;
 
     const completed = complete ? "Todo-completed" : "";
 
     return (
       <div className="Todo">
-        <label htmlFor={id} className={`${completed}`}>
+        <label htmlFor={id}>
           <input
             type="checkbox"
             id={id}
             name={task}
             onChange={this.handleTaskComplete}
+            checked={complete}
           />
           <input
-            className="Todo-task"
+            className={`Todo-task ${completed}`}
             type="text"
             value={this.state.task}
             onChange={this.handleTaskChange}
