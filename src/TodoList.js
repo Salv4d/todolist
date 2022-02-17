@@ -12,6 +12,7 @@ class TodoList extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.changeTodo = this.changeTodo.bind(this);
   }
 
   addTodo(newTodo) {
@@ -24,6 +25,15 @@ class TodoList extends Component {
     this.setState((st) => ({
       todos: st.todos.filter((task) => task.id !== todoId),
     }));
+  }
+
+  changeTodo(newTodo) {
+    this.setState((st) => {
+      let todoList = st.todos;
+      let todo = todoList.find((task) => task.id === newTodo.id);
+      Object.assign(todo, newTodo);
+      return { todos: todoList };
+    });
   }
 
   toggleTodo(todo) {
@@ -50,6 +60,7 @@ class TodoList extends Component {
                 complete={task.complete}
                 removeTodo={this.removeTodo}
                 toggleTodo={this.toggleTodo}
+                editTodo={this.changeTodo}
               />
             </CSSTransition>
           ))}

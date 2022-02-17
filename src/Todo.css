@@ -17,6 +17,11 @@
   display: none;
 }
 
+.Todo-task {
+  background-color: transparent;
+  border: none;
+}
+
 .Todo button {
   background-color: transparent;
   border: none;

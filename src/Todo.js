@@ -9,10 +9,12 @@ class Todo extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { hidden: "Todo-hide" };
+    this.state = { hidden: "Todo-hide", task: this.props.task };
     this.handleRemove = this.handleRemove.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTaskComplete = this.handleTaskComplete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleTaskChange = this.handleTaskChange.bind(this);
+    this.handleTaskModification = this.handleTaskModification.bind(this);
   }
 
   handleRemove() {
@@ -23,7 +25,7 @@ class Todo extends Component {
     this.props.handleEdit(this.props.id);
   }
 
-  handleChange(evt) {
+  handleTaskComplete(evt) {
     this.props.toggleTodo({
       id: this.props.id,
       name: this.props.task,
@@ -31,8 +33,24 @@ class Todo extends Component {
     });
   }
 
+  handleTaskChange(evt) {
+    this.setState(() => ({ task: evt.target.value }));
+  }
+
+  handleTaskModification(evt) {
+    if (evt.keyCode === 13) {
+      this.props.editTodo({
+        complete: this.props.complete,
+        id: this.props.id,
+        name: this.state.task,
+      });
+
+      evt.target.blur();
+    }
+  }
+
   render() {
-    const { id, task, complete } = this.props;
+    const { id, task, complete, editMode } = this.props;
 
     const completed = complete ? "Todo-completed" : "";
 
@@ -43,14 +61,17 @@ class Todo extends Component {
             type="checkbox"
             id={id}
             name={task}
-            onChange={this.handleChange}
+            onChange={this.handleTaskComplete}
           />
-          {task}
+          <input
+            className="Todo-task"
+            type="text"
+            value={this.state.task}
+            onChange={this.handleTaskChange}
+            onKeyUp={this.handleTaskModification}
+          />
         </label>
-        <div>
-          <button>Edit</button>
-          <button onClick={this.handleRemove}>x</button>
-        </div>
+        <button onClick={this.handleRemove}>x</button>
       </div>
     );
   }
