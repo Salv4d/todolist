@@ -8,7 +8,11 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.state = { todos: new Array() };
+
+    this.localStorageTodos = localStorage.getItem("todoList");
+    this.state = JSON.parse(this.localStorageTodos) || {
+      todos: new Array(),
+    };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
@@ -44,6 +48,10 @@ class TodoList extends Component {
     this.setState((st) => ({
       todos: todoList.sort((a, b) => a.complete - b.complete),
     }));
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todoList", JSON.stringify(this.state));
   }
 
   render() {
