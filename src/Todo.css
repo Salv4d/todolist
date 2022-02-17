@@ -20,6 +20,7 @@
 .Todo-task {
   background-color: transparent;
   border: none;
+  width: 455px;
 }
 
 .Todo button {
